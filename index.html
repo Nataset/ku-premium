@@ -8,7 +8,40 @@
         <link rel="stylesheet" type="text/css" href="css/pannellum.css" />
     </head>
     <body>
-        <div class="shop">
+        <img src="./static/shop-logo.jpg" alt="logo" class="header__logo" />
+        <header>
+            <div></div>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="#">Shop</a>
+                    </li>
+                    <li>
+                        <a href="#">AR</a>
+                    </li>
+                    <li>
+                        <a href="#">Tours</a>
+                    </li>
+                    <li>
+                        <a href="#">Metaverse</a>
+                    </li>
+                </ul>
+            </nav>
+            <svg
+                width="48"
+                height="32"
+                viewBox="0 0 48 32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="header_menu"
+            >
+                <path
+                    d="M24 32H0V26.6667H24V32ZM48 18.6667H0V13.3333H48V18.6667ZM48 5.33333H24V0H48V5.33333Z"
+                    fill="white"
+                />
+            </svg>
+        </header>
+        <section class="shop">
             <div class="shop__content">
                 <div class="shop__bg">
                     <div class="shop__title">THE PREMIUM @KU <br />Online Shop</div>
@@ -23,8 +56,8 @@
                 </div>
             </div>
             <div class="shop__photo"></div>
-        </div>
-        <div class="ar">
+        </section>
+        <section class="ar">
             <canvas class="ar__bg"></canvas>
             <div class="ar__content">
                 <div class="ar__title">THE PREMIUM @KU <br />AR Camera Web App</div>
@@ -34,22 +67,22 @@
                 </div>
                 <button class="ar__button" role="button">Start AR APP</button>
             </div>
-        </div>
+        </section>
 
-        <div class="panorama">
+        <section class="panorama">
             <div id="panorama__bg"></div>
             <div class="panorama__content">
                 <div class="panorama__title">THE PREMIUM @KU <br />360 Interaction Tours</div>
                 <button class="panorama__button" role="button">Start 360 Tours</button>
             </div>
-        </div>
-        <div class="mataverse">
-            <canvas class="mataverse-bg"></canvas>
-            <div class="mataverse__title">KU Mataverse</div>
+        </section>
+        <section class="mataverse">
+            <canvas class="mataverse__bg"></canvas>
+            <div class="mataverse__title">KU Metaverse</div>
             <div>
                 <button class="metaverse__button" role="button">Click to Continue</button>
             </div>
-        </div>
+        </section>
         <script src="js/three.min.js"></script>
         <script src="js/postprocessing.min.js"></script>
         <script src="js/GLTFLoader.js"></script>

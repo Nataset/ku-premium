@@ -9,7 +9,8 @@ pannellum.viewer('panorama__bg', {
 });
 
 (function ar() {
-    const gltfLoader = new THREE.GLTFLoader();
+    const manager = new THREE.LoadingManager();
+    const gltfLoader = new THREE.GLTFLoader(manager);
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
         60,
@@ -49,9 +50,14 @@ pannellum.viewer('panorama__bg', {
 
         tl.to(gltf.scene.rotation, { y: 4.7, duration: 1 });
         tl.to(gltf.scene.scale, { x: 0.2, y: 0.2, z: 0.2, duration: 1 }, '-=1');
-        tl.to(gltf.scene.position, { x: -1.25, duration: 1 });
+        tl.to(gltf.scene.position, { x: -1, duration: 1 });
         tl.to(gltf.scene.rotation, { y: 5.0, duration: 1 });
         tl.to(gltf.scene.scale, { x: 0.25, y: 0.25, z: 0.2, duration: 1 }, '-=1');
+
+        manager.onLoad = () => {
+            const text = document.querySelector('.ar__content');
+            text.classList.add('ar__animation');
+        };
     });
 
     function animate() {
@@ -123,7 +129,7 @@ pannellum.viewer('panorama__bg', {
         scene_meta.add(blueLight);
 
         renderer_meta = new THREE.WebGLRenderer({
-            canvas: document.querySelector('.mataverse-bg'),
+            canvas: document.querySelector('.mataverse__bg'),
         });
         window.render_meta = render_meta;
         renderer_meta.setSize(document.documentElement.clientWidth, 500);
