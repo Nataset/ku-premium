@@ -12,11 +12,10 @@ pannellum.viewer('panorama__bg', {
 const camera_width = document.documentElement.clientWidth;
 const render_height = camera_width >= 700 ? 500 : 800;
 (function ar() {
-    const camera_height = camera_width >= 1200 ? 500 : 500;
     const manager = new THREE.LoadingManager();
     const gltfLoader = new THREE.GLTFLoader(manager);
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(60, camera_width / camera_height, 0.1, 1000);
+    const camera = new THREE.PerspectiveCamera(60, camera_width / 500, 0.1, 1000);
 
     window.camera_ar = camera;
 
@@ -33,7 +32,7 @@ const render_height = camera_width >= 700 ? 500 : 800;
     });
 
     window.renderer_ar = renderer;
-    renderer.setSize(camera_width, camera_height);
+    renderer.setSize(camera_width, 500);
 
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
     scene.add(ambientLight);
@@ -84,7 +83,7 @@ const render_height = camera_width >= 700 ? 500 : 800;
 
                 const text = document.querySelector('.ar__content');
                 text.classList.add('ar__animation');
-            }, 3000);
+            }, 2300);
             window.addEventListener('resize', onWindowResize, false);
         };
     });
