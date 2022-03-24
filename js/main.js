@@ -12,7 +12,7 @@ pannellum.viewer('panorama__bg', {
 const camera_width = document.documentElement.clientWidth;
 const render_height = camera_width >= 700 ? 500 : 800;
 (function ar() {
-    const camera_height = camera_width >= 1200 ? 500 : 800;
+    const camera_height = camera_width >= 1200 ? 500 : 500;
     const manager = new THREE.LoadingManager();
     const gltfLoader = new THREE.GLTFLoader(manager);
     const scene = new THREE.Scene();
@@ -22,7 +22,7 @@ const render_height = camera_width >= 700 ? 500 : 800;
 
     camera.position.x = 0;
     camera.position.y = 0;
-    camera.position.z = 1;
+    camera.position.z = -1;
 
     let tl = gsap.timeline();
 
@@ -45,26 +45,47 @@ const render_height = camera_width >= 700 ? 500 : 800;
     gltfLoader.load('./static/untitled.gltf', gltf => {
         gltf.scene.name = scene.add(gltf.scene);
 
-        if (camera_width >= 1200) {
-            gltf.scene.scale.set(0.3, 0.3, 0.3);
-            gltf.scene.rotation.set(0, 3.3, 0);
-            tl.to(gltf.scene.rotation, { y: 4.7, duration: 1 });
-            tl.to(gltf.scene.scale, { x: 0.2, y: 0.2, z: 0.2, duration: 1 }, '-=1');
-            tl.to(gltf.scene.position, { x: -1, duration: 1 });
-            tl.to(gltf.scene.rotation, { y: 5.0, duration: 1 });
-            tl.to(gltf.scene.scale, { x: 0.25, y: 0.25, z: 0.2, duration: 1 }, '-=1');
-        } else {
-            gltf.scene.scale.set(0.03, 0.03, 0.03);
-            gltf.scene.rotation.set(0, 0.0, 0);
-            gltf.scene.position.y += 0.26;
-            gltf.scene.scale.set(0.1, 0.1, 0.1);
-            tl.to(gltf.scene.rotation, { y: 4.7, duration: 2 });
-            tl.to(gltf.scene.scale, { x: 0.14, y: 0.14, z: 0.14, duration: 2 }, '-=1');
-        }
+        // if (camera_width >= 1200) {
+        //     gltf.scene.scale.set(0.3, 0.3, 0.3);
+        //     gltf.scene.rotation.set(0, 3.3, 0);
+        //     tl.to(gltf.scene.rotation, { y: 4.7, duration: 1 });
+        //     tl.to(gltf.scene.scale, { x: 0.2, y: 0.2, z: 0.2, duration: 1 }, '-=1');
+        //     tl.to(gltf.scene.position, { x: -1, duration: 1 });
+        //     tl.to(gltf.scene.rotation, { y: 4.5, duration: 1 });
+        //     tl.to(gltf.scene.scale, { x: 0.23, y: 0.23, z: 0.23, duration: 1 }, '-=1');
+        // } else {
+        //     gltf.scene.scale.set(0.2, 0.2, 0.2);
+        //     gltf.scene.position.y += 0.07;
+        //     tl.to(gltf.scene.rotation, { y: 4.5, duration: 2 });
+        //     tl.to(gltf.scene.scale, { x: 0.23, y: 0.23, z: 0.23, duration: 2 }, '-=1');
+        // }
+
+        window.phone = gltf.scene;
 
         manager.onLoad = () => {
-            const text = document.querySelector('.ar__content');
-            text.classList.add('ar__animation');
+            setTimeout(() => {
+                if (camera_width >= 1200) {
+                    phone.scale.set(0.3, 0.3, 0.3);
+                    phone.rotation.set(0, 3.3, 0);
+
+                    tl.to(phone.rotation, { y: 4.7, duration: 1 });
+                    tl.to(camera.position, { z: 1, duration: 2 }, '-=2');
+                    tl.to(phone.scale, { x: 0.2, y: 0.2, z: 0.2, duration: 2 }, '-=2');
+                    tl.to(phone.position, { x: -1, duration: 1 });
+                    tl.to(phone.rotation, { y: 4.5, duration: 1 });
+                    tl.to(phone.scale, { x: 0.23, y: 0.23, z: 0.23, duration: 1 }, '-=1');
+                } else {
+                    phone.scale.set(0.2, 0.2, 0.2);
+                    phone.position.y += 0.07;
+                    tl.to(phone.rotation, { y: 4.5, duration: 2 });
+                    tl.to(camera.position, { z: 1, duration: 2 }, '-=3');
+                    tl.to(phone.scale, { x: 0.23, y: 0.23, z: 0.23, duration: 2 }, '-=1');
+                }
+
+                const text = document.querySelector('.ar__content');
+                text.classList.add('ar__animation');
+            }, 3000);
+            window.addEventListener('resize', onWindowResize, false);
         };
     });
 
@@ -209,8 +230,6 @@ const render_height = camera_width >= 700 ? 500 : 800;
     return { camera_meta, render_meta };
 })();
 
-window.addEventListener('resize', onWindowResize, false);
-
 function onWindowResize() {
     if (document.documentElement.clientWidth >= 700) {
         window.camera_meta.aspect = document.documentElement.clientWidth / 500;
@@ -222,13 +241,19 @@ function onWindowResize() {
         window.renderer_meta.setSize(document.documentElement.clientWidth, 800);
     }
 
-    if (document.documentElement.clientWidth >= 1200) {
+    if (document.documentElement.clientWidth > 1200) {
         window.camera_ar.aspect = document.documentElement.clientWidth / 500;
         window.camera_ar.updateProjectionMatrix();
         window.renderer_ar.setSize(document.documentElement.clientWidth, 500);
+        window.phone.position.x = -1;
+        window.phone.position.y = 0;
+        window.phone.position.z = 0;
     } else {
-        window.camera_ar.aspect = document.documentElement.clientWidth / 800;
+        window.camera_ar.aspect = document.documentElement.clientWidth / 500;
         window.camera_ar.updateProjectionMatrix();
-        window.renderer_ar.setSize(document.documentElement.clientWidth, 800);
+        window.renderer_ar.setSize(document.documentElement.clientWidth, 500);
+        window.phone.position.x = 0;
+        window.phone.position.y = 0.07;
+        window.phone.position.z = 0;
     }
 }

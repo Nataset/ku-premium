@@ -1,4 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
 
 * {
     box-sizing: border-box;
@@ -10,7 +15,7 @@ body {
 
 a {
     text-decoration: none;
-    font-size: 1.3rem;
+    font-size: 1rem;
 }
 
 header {
@@ -38,12 +43,13 @@ ul {
 li a {
     color: white;
     padding: 0.5em 2em;
-    font-family: 'Kanit';
-    font-weight: 300;
+    font-family: 'Poppins';
+    font-weight: 200;
 }
 
 li a:hover {
-    background: rgb(255, 0, 0);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
 }
 
 .header__logo {
