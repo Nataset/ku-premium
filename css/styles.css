@@ -13,6 +13,7 @@ body {
     width: 100%;
     height: 500px;
     flex-direction: row;
+    z-index: auto;
 }
 
 .shop__bg {
@@ -24,7 +25,6 @@ body {
     width: 100%;
     height: 100%;
     background-color: #f9efde;
-    z-index: -99;
 }
 
 .shop__photo {
@@ -34,7 +34,6 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    z-index: -1;
     animation: introLoad 2s forwards;
 }
 
@@ -45,7 +44,6 @@ body {
     width: 50%;
     justify-content: center;
     align-items: flex-start;
-    z-index: -2;
     animation: moveDown 1s ease-in-out forwards;
     opacity: 0;
 }
@@ -55,6 +53,7 @@ body {
     font-weight: 600;
     font-size: 3rem;
     line-height: 1.25;
+    z-index: 0;
 }
 
 .shop__descrip {
@@ -81,6 +80,7 @@ body {
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
+    z-index: 1;
 }
 
 .shop__button:after {
@@ -212,18 +212,11 @@ body {
     z-index: -99;
 }
 
-.mataverse__subtitle {
-    font-size: 24px;
-    font-family: 'Kanit', sans-serif;
-    font-weight: 300;
-    color: white;
-}
-
 .mataverse__title {
     color: white;
     font-family: 'Kanit', sans-serif;
     font-weight: 600;
-    font-size: 90px;
+    font-size: 6rem;
     margin-bottom: 20px;
 }
 
@@ -347,4 +340,84 @@ body {
         transform: translateY(0);
         opacity: 1;
     }
+}
+
+.panorama {
+    width: 100%;
+    height: 500px;
+}
+
+#panorama__bg {
+    position: absolute;
+    width: 100%;
+    height: 500px;
+    opacity: 0.5;
+}
+
+.panorama__content {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+
+.panorama__title {
+    line-height: 1.25;
+    color: white;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 600;
+    font-size: 4.5rem;
+    z-index: 1;
+}
+
+.panorama__descrip {
+    margin-top: 20px;
+    line-height: 1.5;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 300;
+    font-size: 1.5rem;
+    z-index: 1;
+}
+
+.panorama__button {
+    margin-top: 30px;
+    height: 50px;
+    width: 250px;
+    grid-row: 3;
+    color: rgb(0, 0, 0);
+    font-family: 'Kanit', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    padding: 13px 20px 13px;
+    outline: 0;
+    border: 1px solid rgb(255, 255, 255);
+    cursor: pointer;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    z-index: 1;
+}
+
+.panorama__button:after {
+    content: '';
+    background-color: #d1d1d1;
+    z-index: -1;
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    top: 7px;
+    left: 7px;
+    transition: 0.2s;
+}
+
+.panorama__button:hover:after {
+    top: 0px;
+    left: 0px;
 }
