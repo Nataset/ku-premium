@@ -1,7 +1,7 @@
 pannellum.viewer('panorama__bg', {
     type: 'equirectangular',
-    // panorama: './static/test360.jpg',
-    panorama: 'https://pannellum.org/images/alma.jpg',
+    panorama: './static/test360.jpg',
+    // panorama: 'https://pannellum.org/images/alma.jpg',
     draggable: false,
     mouseZoom: false,
     autoLoad: true,
