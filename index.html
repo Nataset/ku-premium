@@ -14,16 +14,16 @@
             <nav>
                 <ul>
                     <li>
-                        <a href="#">Shop</a>
+                        <a href="#shop">Shop</a>
                     </li>
                     <li>
-                        <a href="#">AR</a>
+                        <a href="#ar">AR</a>
                     </li>
                     <li>
-                        <a href="#">Tours</a>
+                        <a href="#panorama">Tours</a>
                     </li>
                     <li>
-                        <a href="#">Metaverse</a>
+                        <a href="#metaverse">Metaverse</a>
                     </li>
                 </ul>
             </nav>
@@ -41,23 +41,21 @@
                 />
             </svg>
         </header>
-        <section class="shop">
+        <section class="shop" id="shop">
             <div class="shop__content">
-                <div class="shop__bg">
-                    <div class="shop__title">THE PREMIUM @KU <br />Online Shop</div>
-                    <div class="shop__descrip">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat, non
-                        exercitationem impedit expedita quos enim. Quis debitis nulla ex suscipit
-                        architecto, eaque porro illum quibusdam quo perferendis neque quae quasi?
-                    </div>
-                    <a href="#">
-                        <button class="shop__button" role="button">Go to Shop</button>
-                    </a>
+                <div class="shop__title">THE PREMIUM @KU <br />Online Shop</div>
+                <div class="shop__descrip">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat, non
+                    exercitationem impedit expedita quos enim. Quis debitis nulla ex suscipit
+                    architecto, eaque porro illum quibusdam quo perferendis neque quae quasi?
                 </div>
+                <a href="#">
+                    <button class="shop__button" role="button">Go to Shop</button>
+                </a>
             </div>
             <div class="shop__photo"></div>
         </section>
-        <section class="ar">
+        <section class="ar" id="ar">
             <canvas class="ar__bg"></canvas>
             <div class="ar__content">
                 <div class="ar__title">THE PREMIUM @KU <br />AR Camera Web App</div>
@@ -69,18 +67,20 @@
             </div>
         </section>
 
-        <section class="panorama">
+        <section class="panorama" id="panorama">
             <div id="panorama__bg"></div>
             <div class="panorama__content">
                 <div class="panorama__title">THE PREMIUM @KU <br />360 Interaction Tours</div>
                 <button class="panorama__button" role="button">Start 360 Tours</button>
             </div>
         </section>
-        <section class="mataverse">
-            <canvas class="mataverse__bg"></canvas>
-            <div class="mataverse__title">KU Metaverse</div>
+        <section class="metaverse" id="metaverse">
+            <canvas class="metaverse__bg"></canvas>
+            <div class="metaverse__title">KU Metaverse</div>
             <div>
-                <button class="metaverse__button" role="button">Click to Continue</button>
+                <a href="#">
+                    <button class="metaverse__button" role="button">Click to Continue</button>
+                </a>
             </div>
         </section>
         <script src="js/three.min.js"></script>

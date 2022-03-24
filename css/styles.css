@@ -32,11 +32,7 @@ ul {
     display: flex;
     list-style-type: none;
     justify-content: space-between;
-
     padding: 0;
-}
-
-li {
 }
 
 li a {
@@ -73,17 +69,6 @@ li a:hover {
     z-index: auto;
 }
 
-.shop__bg {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 0px 5rem;
-    width: 100%;
-    height: 100%;
-    background-color: #f9efde;
-}
-
 .shop__photo {
     width: 50%;
     background-image: url('../static/shop.png');
@@ -95,12 +80,14 @@ li a:hover {
 }
 
 .shop__content {
+    padding: 0px 5rem;
     text-align: left;
     display: flex;
     flex-direction: column;
     width: 50%;
     justify-content: center;
     align-items: flex-start;
+    background-color: #f9efde;
     animation: moveDown 1s ease-in-out forwards;
     opacity: 0;
 }
@@ -254,7 +241,7 @@ li a:hover {
     left: 0px;
 }
 
-.mataverse {
+.metaverse {
     position: relative;
     display: flex;
     width: 100%;
@@ -265,14 +252,14 @@ li a:hover {
     text-align: center;
 }
 
-.mataverse__bg {
+.metaverse__bg {
     position: absolute;
     width: 100%;
     height: 500px;
     z-index: -99;
 }
 
-.mataverse__title {
+.metaverse__title {
     color: white;
     font-family: 'Kanit', sans-serif;
     font-weight: 600;
@@ -434,15 +421,6 @@ li a:hover {
     z-index: 1;
 }
 
-.panorama__descrip {
-    margin-top: 20px;
-    line-height: 1.5;
-    font-family: 'Kanit', sans-serif;
-    font-weight: 300;
-    font-size: 1.5rem;
-    z-index: 1;
-}
-
 .panorama__button {
     margin-top: 30px;
     height: 50px;
@@ -480,4 +458,191 @@ li a:hover {
 .panorama__button:hover:after {
     top: 0px;
     left: 0px;
+}
+
+@media screen and (max-width: 1300px) {
+    li a {
+        padding: 0.5em 1em;
+    }
+
+    .shop__content {
+        padding: 0px 2rem;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .ar {
+        height: 1000px;
+        grid-template-rows: 1fr 1fr;
+    }
+
+    .ar {
+        height: 800px;
+    }
+
+    .ar__content {
+        grid-column: 4/11;
+        grid-row: 2;
+        place-self: center;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    nav {
+        padding: 0px 2em;
+    }
+
+    li a {
+        padding: 0.5em 0.5em;
+    }
+
+    .shop__content {
+        padding: 0px 0.5rem;
+    }
+
+    .header__logo {
+        max-width: 150px;
+    }
+
+    .panorama__content {
+        margin: 0px 2rem;
+        text-align: center;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    nav {
+        display: none;
+        padding: 0px 2em;
+    }
+
+    li a {
+        padding: 0.5em 0.5em;
+    }
+
+    .ar__content {
+        grid-column: 2/12;
+        grid-row: 2;
+        place-self: center;
+    }
+
+    .header__logo {
+        max-width: 150px;
+    }
+
+    .shop {
+        flex-direction: column-reverse;
+        height: 1000px;
+    }
+
+    .shop__photo {
+        width: 100%;
+        height: 60%;
+    }
+
+    .shop__content {
+        padding: 0px 2em;
+        width: 100%;
+        height: 40%;
+    }
+
+    .shop__title {
+        font-size: 36px;
+    }
+
+    .shop__descrip {
+        font-size: 20px;
+    }
+
+    .panorama__title {
+        font-size: 3.8rem;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .header__logo {
+        margin: 0px 0.5em;
+        max-width: 150px;
+        animation: moveDown 1s forwards;
+    }
+
+    .ar__title {
+        font-size: 36px;
+    }
+
+    .ar__descrip {
+        font-size: 20px;
+    }
+
+    .shop__title {
+        font-size: 36px;
+    }
+
+    .shop__descrip {
+        font-size: 20px;
+    }
+
+    .panorama__title {
+        font-size: 3rem;
+    }
+
+    .metaverse__title {
+        font-size: 4rem;
+    }
+
+    .metaverse {
+        height: 800px;
+    }
+
+    .metaverse__bg {
+        position: absolute;
+        width: 100%;
+        height: 800px;
+        z-index: -99;
+    }
+
+    .panorama {
+        height: 800px;
+    }
+
+    #panorama__bg {
+        height: 800px;
+    }
+
+    .panorama__content {
+        height: 800px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .header__logo {
+        margin: 0px 0.5em;
+        max-width: 125px;
+        animation: moveDown 1s forwards;
+    }
+
+    .ar__title {
+        font-size: 32px;
+    }
+
+    .ar__descrip {
+        font-size: 16px;
+    }
+
+    .shop__title {
+        font-size: 32px;
+    }
+
+    .shop__descrip {
+        font-size: 16px;
+    }
+
+    .panorama__title {
+        font-size: 2rem;
+    }
+
+    .metaverse__title {
+        font-size: 3rem;
+    }
 }

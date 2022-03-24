@@ -1,6 +1,7 @@
 pannellum.viewer('panorama__bg', {
     type: 'equirectangular',
-    panorama: './static/test360.jpg',
+    // panorama: './static/test360.jpg',
+    panorama: 'https://pannellum.org/images/alma.jpg',
     draggable: false,
     mouseZoom: false,
     autoLoad: true,
@@ -8,16 +9,14 @@ pannellum.viewer('panorama__bg', {
     autoRotate: -2,
 });
 
+const camera_width = document.documentElement.clientWidth;
+const render_height = camera_width >= 700 ? 500 : 800;
 (function ar() {
+    const camera_height = camera_width >= 1200 ? 500 : 800;
     const manager = new THREE.LoadingManager();
     const gltfLoader = new THREE.GLTFLoader(manager);
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(
-        60,
-        document.documentElement.clientWidth / 500,
-        0.1,
-        1000,
-    );
+    const camera = new THREE.PerspectiveCamera(60, camera_width / camera_height, 0.1, 1000);
 
     window.camera_ar = camera;
 
@@ -34,7 +33,7 @@ pannellum.viewer('panorama__bg', {
     });
 
     window.renderer_ar = renderer;
-    renderer.setSize(document.documentElement.clientWidth, 500);
+    renderer.setSize(camera_width, camera_height);
 
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
     scene.add(ambientLight);
@@ -44,15 +43,24 @@ pannellum.viewer('panorama__bg', {
     scene.add(pointLight);
 
     gltfLoader.load('./static/untitled.gltf', gltf => {
-        gltf.scene.scale.set(0.3, 0.3, 0.3);
-        gltf.scene.rotation.set(0, 3.3, 0);
         gltf.scene.name = scene.add(gltf.scene);
 
-        tl.to(gltf.scene.rotation, { y: 4.7, duration: 1 });
-        tl.to(gltf.scene.scale, { x: 0.2, y: 0.2, z: 0.2, duration: 1 }, '-=1');
-        tl.to(gltf.scene.position, { x: -1, duration: 1 });
-        tl.to(gltf.scene.rotation, { y: 5.0, duration: 1 });
-        tl.to(gltf.scene.scale, { x: 0.25, y: 0.25, z: 0.2, duration: 1 }, '-=1');
+        if (camera_width >= 1200) {
+            gltf.scene.scale.set(0.3, 0.3, 0.3);
+            gltf.scene.rotation.set(0, 3.3, 0);
+            tl.to(gltf.scene.rotation, { y: 4.7, duration: 1 });
+            tl.to(gltf.scene.scale, { x: 0.2, y: 0.2, z: 0.2, duration: 1 }, '-=1');
+            tl.to(gltf.scene.position, { x: -1, duration: 1 });
+            tl.to(gltf.scene.rotation, { y: 5.0, duration: 1 });
+            tl.to(gltf.scene.scale, { x: 0.25, y: 0.25, z: 0.2, duration: 1 }, '-=1');
+        } else {
+            gltf.scene.scale.set(0.03, 0.03, 0.03);
+            gltf.scene.rotation.set(0, 0.0, 0);
+            gltf.scene.position.y += 0.26;
+            gltf.scene.scale.set(0.1, 0.1, 0.1);
+            tl.to(gltf.scene.rotation, { y: 4.7, duration: 2 });
+            tl.to(gltf.scene.scale, { x: 0.14, y: 0.14, z: 0.14, duration: 2 }, '-=1');
+        }
 
         manager.onLoad = () => {
             const text = document.querySelector('.ar__content');
@@ -78,12 +86,7 @@ pannellum.viewer('panorama__bg', {
 
     function init() {
         scene_meta = new THREE.Scene();
-        camera_meta = new THREE.PerspectiveCamera(
-            60,
-            document.documentElement.clientWidth / 500,
-            0.01,
-            1000,
-        );
+        camera_meta = new THREE.PerspectiveCamera(60, camera_width / render_height, 0.01, 1000);
         camera_meta.position.z = 1;
         camera_meta.rotation.x = 1.16;
         camera_meta.rotation.y = -0.12;
@@ -129,10 +132,10 @@ pannellum.viewer('panorama__bg', {
         scene_meta.add(blueLight);
 
         renderer_meta = new THREE.WebGLRenderer({
-            canvas: document.querySelector('.mataverse__bg'),
+            canvas: document.querySelector('.metaverse__bg'),
         });
         window.render_meta = render_meta;
-        renderer_meta.setSize(document.documentElement.clientWidth, 500);
+        renderer_meta.setSize(camera_width, render_height);
         scene_meta.fog = new THREE.FogExp2(0x002a36, 0.001);
         renderer_meta.setClearColor(scene_meta.fog.color);
 
@@ -209,11 +212,23 @@ pannellum.viewer('panorama__bg', {
 window.addEventListener('resize', onWindowResize, false);
 
 function onWindowResize() {
-    window.camera_meta.aspect = document.documentElement.clientWidth / 500;
-    window.camera_meta.updateProjectionMatrix();
-    window.renderer_meta.setSize(document.documentElement.clientWidth, 500);
+    if (document.documentElement.clientWidth >= 700) {
+        window.camera_meta.aspect = document.documentElement.clientWidth / 500;
+        window.camera_meta.updateProjectionMatrix();
+        window.renderer_meta.setSize(document.documentElement.clientWidth, 500);
+    } else {
+        window.camera_meta.aspect = document.documentElement.clientWidth / 800;
+        window.camera_meta.updateProjectionMatrix();
+        window.renderer_meta.setSize(document.documentElement.clientWidth, 800);
+    }
 
-    window.camera_ar.aspect = document.documentElement.clientWidth / 500;
-    window.camera_ar.updateProjectionMatrix();
-    window.renderer_ar.setSize(document.documentElement.clientWidth, 500);
+    if (document.documentElement.clientWidth >= 1200) {
+        window.camera_ar.aspect = document.documentElement.clientWidth / 500;
+        window.camera_ar.updateProjectionMatrix();
+        window.renderer_ar.setSize(document.documentElement.clientWidth, 500);
+    } else {
+        window.camera_ar.aspect = document.documentElement.clientWidth / 800;
+        window.camera_ar.updateProjectionMatrix();
+        window.renderer_ar.setSize(document.documentElement.clientWidth, 800);
+    }
 }
