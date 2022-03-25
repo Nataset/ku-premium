@@ -99,28 +99,38 @@ const render_height = camera_width >= 700 ? 500 : 800;
         window.phone = gltf.scene;
 
         manager.onLoad = () => {
-            setTimeout(() => {
-                if (camera_width >= 1200) {
-                    phone.scale.set(0.3, 0.3, 0.3);
-                    phone.rotation.set(0, 3.3, 0);
+            const ar_el = document.querySelector('.ar__content');
+            const observer = new IntersectionObserver(
+                function (entries) {
+                    if (entries[0].isIntersecting === true) {
+                        console.log('Element has just become visible in screen');
 
-                    tl.to(phone.rotation, { y: 4.7, duration: 1 });
-                    tl.to(camera.position, { z: 1, duration: 2 }, '-=2');
-                    tl.to(phone.scale, { x: 0.2, y: 0.2, z: 0.2, duration: 2 }, '-=2');
-                    tl.to(phone.position, { x: -1, duration: 1 });
-                    tl.to(phone.rotation, { y: 4.5, duration: 1 });
-                    tl.to(phone.scale, { x: 0.23, y: 0.23, z: 0.23, duration: 1 }, '-=1');
-                } else {
-                    phone.scale.set(0.2, 0.2, 0.2);
-                    phone.position.y += 0.07;
-                    tl.to(phone.rotation, { y: 4.5, duration: 2 });
-                    tl.to(camera.position, { z: 1, duration: 2 }, '-=3');
-                    tl.to(phone.scale, { x: 0.23, y: 0.23, z: 0.23, duration: 2 }, '-=1');
-                }
+                        if (camera_width >= 1200) {
+                            phone.scale.set(0.3, 0.3, 0.3);
+                            phone.rotation.set(0, 3.3, 0);
 
-                const text = document.querySelector('.ar__content');
-                text.classList.add('ar__animation');
-            }, 2300);
+                            tl.to(phone.rotation, { y: 4.7, duration: 1 });
+                            tl.to(camera.position, { z: 1, duration: 2 }, '-=2');
+                            tl.to(phone.scale, { x: 0.2, y: 0.2, z: 0.2, duration: 2 }, '-=2');
+                            tl.to(phone.position, { x: -1, duration: 1 });
+                            tl.to(phone.rotation, { y: 4.5, duration: 1 });
+                            tl.to(phone.scale, { x: 0.23, y: 0.23, z: 0.23, duration: 1 }, '-=1');
+                        } else {
+                            phone.scale.set(0.2, 0.2, 0.2);
+                            phone.position.y += 0.07;
+                            tl.to(phone.rotation, { y: 4.5, duration: 2 });
+                            tl.to(camera.position, { z: 1, duration: 2 }, '-=3');
+                            tl.to(phone.scale, { x: 0.23, y: 0.23, z: 0.23, duration: 2 }, '-=1');
+                        }
+
+                        ar_el.classList.add('ar__animation');
+                        observer.unobserve(ar_el);
+                    }
+                },
+                { threshold: [0] },
+            );
+
+            observer.observe(ar_el);
             window.addEventListener('resize', onWindowResize, false);
         };
     });
