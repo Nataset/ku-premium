@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html>
+    <div class="modal modal--hidden">
+        <div class="modal__contents">
+            <div class="modal__close-bar"><span style="position: fixed;">x</span></div>
+            <div class="modal__title"></div>
+            <div class="modal__descrip"></div>
+        </div>
+    </div>
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -42,18 +49,27 @@
             </svg>
         </header>
         <section class="shop" id="shop">
+
             <div class="shop__content">
                 <div class="shop__title">THE PREMIUM @KU <br />Online Shop</div>
                 <div class="shop__descrip">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat, non
-                    exercitationem impedit expedita quos enim. Quis debitis nulla ex suscipit
-                    architecto, eaque porro illum quibusdam quo perferendis neque quae quasi?
+                    The Premium @ KU ภายใต้ KUniverse เป็นการบูรณาการความโดดเด่นด้านวิชาการและผลงานวิจัยของนิสิต นักวิจัย และคณาจารย์จากคณะวิชา สถาบัน และศูนย์วิจัยต่างๆ ของมหาวิทยาลัยเกษตรศาสตร์  
                 </div>
                 <a href="#">
-                    <button class="shop__button" role="button">Go to Shop</button>
+                    <button class="shop__button" role="button">อ่านเพิ่มเติม</button>
                 </a>
             </div>
             <div class="shop__photo"></div>
+        </section>
+        <section class="shop-photo">
+        </section>
+        
+        <section class="panorama" id="panorama">
+            <div id="panorama__bg"></div>
+            <div class="panorama__content">
+                <div class="panorama__title">THE PREMIUM @KU <br />360 Interaction Tours</div>
+                <button class="panorama__button" role="button">Start 360 Tours</button>
+            </div>
         </section>
         <section class="ar" id="ar">
             <canvas class="ar__bg"></canvas>
@@ -66,26 +82,15 @@
                 <button class="ar__button" role="button">Start AR APP</button>
             </div>
         </section>
-
-        <section class="panorama" id="panorama">
-            <div id="panorama__bg"></div>
-            <div class="panorama__content">
-                <div class="panorama__title">THE PREMIUM @KU <br />360 Interaction Tours</div>
-                <button class="panorama__button" role="button">Start 360 Tours</button>
-            </div>
-        </section>
         <section class="metaverse" id="metaverse">
             <canvas class="metaverse__bg"></canvas>
-            <div class="metaverse__title">KU Metaverse</div>
+            <div class="metaverse__title">KUniverse</div>
             <div>
-                <a href="#">
-                    <button class="metaverse__button" role="button">Click to Continue</button>
-                </a>
+                    <button class="metaverse__button metaverse__info" role="button">อ่านเพิ่มเติม</button>
+                    <button class="metaverse__button" role="button">เข้าสู่ KUniverse</button>
             </div>
         </section>
-        <section class="shop-phone">
-            <div></div>
-        </section>
+       
         <script src="js/three.min.js"></script>
         <script src="js/postprocessing.min.js"></script>
         <script src="js/GLTFLoader.js"></script>

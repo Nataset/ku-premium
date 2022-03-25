@@ -1,3 +1,40 @@
+document.querySelector('.shop__button').addEventListener('click', () => {
+    document.querySelector('.modal').classList.toggle('modal--hidden');
+    document.querySelector('.modal__contents').style.height = 'auto';
+    document.querySelector('.modal__title').textContent = 'THE PREMIUM @KU CONCEPT';
+    document.querySelector(
+        '.modal__descrip',
+    ).innerHTML = `The Premium @ KU ภายใต้ KUniverse เป็นการบูรณาการความโดดเด่นด้านวิชาการและผลงานวิจัยของนิสิต นักวิจัย และคณาจารย์จากคณะวิชา สถาบัน และศูนย์วิจัยต่างๆ ของมหาวิทยาลัยเกษตรศาสตร์  
+    <br><br>
+    อีกทั้งเป็นแหล่งการเรียนรู้ ให้นิสิตได้ฝึกฝนทักษะวิชาชีพนอกห้องเรียนจากการทำงานจริง ให้นิสิตปัจจุบันและนิสิตเก่าเข้ามามีส่วนร่วมในการสร้างสรรค์นวัตกรรมคุณภาพให้แก่ The Premium 
+    <br><br>
+    Smart farmer  AgriPrenuer และ SME ยกระดับมาตรฐานสินค้าและบริการของ ประชาชนสู่ตลาดระดับชาติและนานาชาติ
+    <br><br>
+    The Premium @ KU จะช่วยพัฒนาคน พัฒนานวัตกรรมสินค้าและบริการอย่างมีมาตรฐาน เป็นศูนย์กลางการเรียนรู้ BCG economy ของประเทศ ในระดับชาติและระดับโลก`;
+});
+
+document.querySelector('.metaverse__info').addEventListener('click', () => {
+    document.querySelector('.modal').classList.toggle('modal--hidden');
+    document.querySelector('.modal__contents').style.height = '90%';
+    document.querySelector('.modal__title').textContent = 'KUniverse CONCEPT';
+    document.querySelector(
+        '.modal__descrip',
+    ).innerHTML = `มหาวิทยาลัยเกษตรศาสตร์มีนโยบายเชิงรุกที่เรียกว่า KUniverse เพื่อขับเคลื่อนการดำเนินงานของมหาวิทยาลัยและหน่วยงานทุกหน่วยงาน ให้สนับสนุนการพัฒนาและขับเคลื่อนเศรษฐกิจประเทศไทยตาม BCG Model <br><br> โดยอุตสาหกรรมการเกษตร จัดเป็นส่วนสำคัญที่สามารถมูลค่าเพิ่มให้กับเศรษฐกิจประเทศไทย เพื่อผลิตเป็นผลิตภัณฑ์มูลค่าสูงควบคู่ไปกับการนำวัสดุต่างๆ รวมถึงวัสดุเหลือใช้ หรือทิ้งแล้วกลับมาใช้ประโยชน์ให้ได้มากที่สุด <br><br>ตามแนวคิดเศรษฐกิจหมุนเวียน (Circular Economy) ที่เน้นการพัฒนาอย่างยั่งยืน (Sustainability)  สร้างการกระจายรายได้สู่ชุมชนลดความเหลื่อมล้ำ สร้างชุมชนเข้มแข็ง มีความเป็นมิตรกับสิ่งแวดล้อม และเน้นการพัฒนาที่ยั่งยืน เพื่อประชาชนคนไทยรุ่นต่อไป (Next Thailand)
+    <br><br>BCG Model ของมหาวิทยาลัยเกษตรศาสตร์  ถูกขับเคลื่อนในจักรวาล KUniverse ซึ่งมหาวิทยาลัยเกษตรศาสตร์กำลังทำหน้าที่เป็นส่วนหนึ่งของโลกเศรษฐกิจ เพื่อเพิ่มคุณภาพชีวิต และเป็นมิตรกับสิ่งแวดล้อม  (Enhancing Our Quality of Life and the Environment) ด้วยบทบาทสำคัญ 7 ประการ
+    
+    <br><br>1. สร้างองค์ความรู้ให้นิสิต เกษตรกร และผู้ประกอบการ
+    <br><br>2. มุ่งเน้นการวิจัยและพัฒนาที่นำนวัตกรรม และเทคโนโลยีมาช่วยสร้างมูลค่าเพิ่มของสินค้าและบริการของ SMEs และเกษตรกรรม
+    <br><br>3. บริการรับรองคุณภาพ และมาตรฐานสินค้า เพื่อยกระดับความน่าเชื่อถือ ของสินค้าและบริการ 
+    <br><br>4. ติดอาวุธให้เกษตรกร และผู้ประกอบการผ่านงานบริการวิชาการ และปรึกษา
+    <br><br>5. สร้าง KU Market Place ที่ใช้หลักการเศรษฐกิจสีเขียว (Green Economy)
+    <br><br>6. สร้าง KU Business Ecosystem พร้อมทั้งผนึกกำลังการส่งเสริมผ่านทุกวิทยาเขตของมหาวิทยาลัยเกษตรศาสตร์
+    <br><br>7. จัดตั้ง Spin-Off Company ภายใต้ KU Holding Company เพื่อขับเคลื่อนการดำเนินงานที่สนับสนุนภาคเอกชนได้สะดวกและรวดเร็วยิ่งขึ้น`;
+});
+
+document.querySelector('.modal__close-bar').addEventListener('click', () => {
+    document.querySelector('.modal').classList.toggle('modal--hidden');
+});
+
 pannellum.viewer('panorama__bg', {
     type: 'equirectangular',
     panorama: './static/360.jpeg',
