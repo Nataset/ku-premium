@@ -46,7 +46,7 @@ document.querySelector('.modal__close-bar').addEventListener('click', () => {
 
 pannellum.viewer('panorama__bg', {
     type: 'equirectangular',
-    panorama: './static/360.jpeg',
+    panorama: './static/360.jpg',
     // panorama: 'https://pannellum.org/images/alma.jpg',
     draggable: false,
     mouseZoom: false,

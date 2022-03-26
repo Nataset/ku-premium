@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;500;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap');
 
 html {
     scroll-behavior: smooth;
@@ -16,7 +15,7 @@ body {
 
 a {
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 1.25rem;
 }
 
 header {
@@ -44,13 +43,12 @@ ul {
 li a {
     color: white;
     padding: 0.5em 2em;
-    font-family: 'Poppins';
+    font-family: 'Kanit';
     font-weight: 200;
 }
 
 li a:hover {
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
+    font-weight: 600;
 }
 
 .modal {
@@ -645,6 +643,12 @@ li a:hover {
         text-align: center;
         align-items: center;
     }
+
+    .shop-photo {
+        height: 800px;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+    }
 }
 
 @media screen and (max-width: 900px) {
@@ -802,37 +806,3 @@ li a:hover {
         font-weight: 200;
     }
 }
-
-/* .shop-photo__bg::before {
-    content: '';
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-    z-index: -1;
-    background-image: url('../static/phong-bg2.png');
-    background-position: center;
-    background-repeat: repeat;
-    background-size: contain;
-    background-position: center;
-    opacity: 0.225;
-}
-
-.shop-photo__bg::after {
-    content: '';
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-    background-color: black;
-    opacity: 0.225;
-    z-index: 49;
-}
-
-.shop-photo__text {
-    color: white;
-    font-size: 4rem;
-    z-index: 99;
-} */
