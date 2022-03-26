@@ -1,6 +1,12 @@
+document.querySelectorAll('.shop-photo__text').forEach(el => {
+    el.addEventListener('mouseover', event => {});
+});
+
 document.querySelector('.shop__button').addEventListener('click', () => {
+    let content = document.querySelector('.modal__contents');
+    content.style.height = 'auto';
+    content.style.overflow = 'hidden';
     document.querySelector('.modal').classList.toggle('modal--hidden');
-    document.querySelector('.modal__contents').style.height = 'auto';
     document.querySelector('.modal__title').textContent = 'THE PREMIUM @KU CONCEPT';
     document.querySelector(
         '.modal__descrip',
@@ -14,9 +20,12 @@ document.querySelector('.shop__button').addEventListener('click', () => {
 });
 
 document.querySelector('.metaverse__info').addEventListener('click', () => {
+    let content = document.querySelector('.modal__contents');
+    content.style.height = '90%';
+    content.style.overflow = 'auto';
     document.querySelector('.modal').classList.toggle('modal--hidden');
-    document.querySelector('.modal__contents').style.height = '90%';
     document.querySelector('.modal__title').textContent = 'KUniverse CONCEPT';
+
     document.querySelector(
         '.modal__descrip',
     ).innerHTML = `มหาวิทยาลัยเกษตรศาสตร์มีนโยบายเชิงรุกที่เรียกว่า KUniverse เพื่อขับเคลื่อนการดำเนินงานของมหาวิทยาลัยและหน่วยงานทุกหน่วยงาน ให้สนับสนุนการพัฒนาและขับเคลื่อนเศรษฐกิจประเทศไทยตาม BCG Model <br><br> โดยอุตสาหกรรมการเกษตร จัดเป็นส่วนสำคัญที่สามารถมูลค่าเพิ่มให้กับเศรษฐกิจประเทศไทย เพื่อผลิตเป็นผลิตภัณฑ์มูลค่าสูงควบคู่ไปกับการนำวัสดุต่างๆ รวมถึงวัสดุเหลือใช้ หรือทิ้งแล้วกลับมาใช้ประโยชน์ให้ได้มากที่สุด <br><br>ตามแนวคิดเศรษฐกิจหมุนเวียน (Circular Economy) ที่เน้นการพัฒนาอย่างยั่งยืน (Sustainability)  สร้างการกระจายรายได้สู่ชุมชนลดความเหลื่อมล้ำ สร้างชุมชนเข้มแข็ง มีความเป็นมิตรกับสิ่งแวดล้อม และเน้นการพัฒนาที่ยั่งยืน เพื่อประชาชนคนไทยรุ่นต่อไป (Next Thailand)
@@ -80,22 +89,6 @@ const render_height = camera_width >= 700 ? 500 : 800;
 
     gltfLoader.load('./static/untitled.gltf', gltf => {
         gltf.scene.name = scene.add(gltf.scene);
-
-        // if (camera_width >= 1200) {
-        //     gltf.scene.scale.set(0.3, 0.3, 0.3);
-        //     gltf.scene.rotation.set(0, 3.3, 0);
-        //     tl.to(gltf.scene.rotation, { y: 4.7, duration: 1 });
-        //     tl.to(gltf.scene.scale, { x: 0.2, y: 0.2, z: 0.2, duration: 1 }, '-=1');
-        //     tl.to(gltf.scene.position, { x: -1, duration: 1 });
-        //     tl.to(gltf.scene.rotation, { y: 4.5, duration: 1 });
-        //     tl.to(gltf.scene.scale, { x: 0.23, y: 0.23, z: 0.23, duration: 1 }, '-=1');
-        // } else {
-        //     gltf.scene.scale.set(0.2, 0.2, 0.2);
-        //     gltf.scene.position.y += 0.07;
-        //     tl.to(gltf.scene.rotation, { y: 4.5, duration: 2 });
-        //     tl.to(gltf.scene.scale, { x: 0.23, y: 0.23, z: 0.23, duration: 2 }, '-=1');
-        // }
-
         window.phone = gltf.scene;
 
         manager.onLoad = () => {
@@ -122,7 +115,7 @@ const render_height = camera_width >= 700 ? 500 : 800;
                             tl.to(camera.position, { z: 1, duration: 2 }, '-=3');
                             tl.to(phone.scale, { x: 0.23, y: 0.23, z: 0.23, duration: 2 }, '-=1');
                         }
-
+                        animate();
                         ar_el.classList.add('ar__animation');
                         observer.unobserve(ar_el);
                     }
@@ -139,8 +132,6 @@ const render_height = camera_width >= 700 ? 500 : 800;
         requestAnimationFrame(animate);
         renderer.render(scene, camera);
     }
-
-    animate();
 })();
 
 (function metaverse() {
@@ -248,7 +239,18 @@ const render_height = camera_width >= 700 ? 500 : 800;
             composer.addPass(new POSTPROCESSING.RenderPass(scene_meta, camera_meta));
             composer.addPass(effectPass);
 
-            render();
+            const meta_el = document.querySelector('.metaverse');
+            const observer2 = new IntersectionObserver(
+                function (entries) {
+                    if (entries[0].isIntersecting === true) {
+                        render();
+                        observer2.unobserve(meta_el);
+                    }
+                },
+                { threshold: [0] },
+            );
+
+            observer2.observe(meta_el);
         });
     }
 
