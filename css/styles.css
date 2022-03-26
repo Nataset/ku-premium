@@ -331,6 +331,7 @@ li a:hover {
 
 .metaverse__button,
 .metaverse__button:after {
+    cursor: pointer;
     margin: auto;
     margin-top: 40px;
     margin-right: 20px;
@@ -352,6 +353,7 @@ li a:hover {
 }
 
 .metaverse__button:after {
+    cursor: pointer;
     --slice-0: inset(50% 50% 50% 50%);
     --slice-1: inset(80% -6px 0 0);
     --slice-2: inset(50% -6px 30% 0);
@@ -372,6 +374,7 @@ li a:hover {
 }
 
 .metaverse__button:hover:after {
+    cursor: pointer;
     animation: 1s glitch;
     animation-timing-function: steps(2, end);
 }
