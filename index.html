@@ -58,13 +58,20 @@
                     เป็นการบูรณาการความโดดเด่นด้านวิชาการและผลงานวิจัยของนิสิต นักวิจัย
                     และคณาจารย์จากคณะวิชา สถาบัน และศูนย์วิจัยต่างๆ ของมหาวิทยาลัยเกษตรศาสตร์ 
                 </div>
-                <div>
-                    <button class="shop__button" role="button">อ่านเพิ่มเติม</button>
-                    <a href="http://www.kubookol.com/index.php?route=product/category&path=232"
-                        ><button style="margin-left: 20px" class="shop__button" role="button">
-                            สั่งออนไลน์
-                        </button></a
-                    >
+                <div class="shop__button-group">
+                    <div>
+                        <button class="shop__button" role="button">อ่านเพิ่มเติม</button>
+                        <a href="http://www.kubookol.com/index.php?route=product/category&path=232"
+                            ><button
+                                style="margin-left: 20px; margin-right: 20px"
+                                class="shop__button"
+                                role="button"
+                            >
+                                สั่งออนไลน์
+                            </button></a
+                        >
+                    </div>
+                    <div class="shop__button-facebook"></div>
                 </div>
             </div>
             <div class="shop__photo"></div>
@@ -89,16 +96,41 @@
             <div class="panorama__content">
                 <div class="panorama__text">
                     <div class="panorama__title">
-                        THE PREMIUM @KU <br />360 Interaction Tours<br />
-                        วิทยาเขต บางเขน
+                        <div>
+                            THE PREMIUM @KU <br />360 Interaction Tours<br />
+                            <span style="font-weight: 200">วิทยาเขต บางเขน</span>
+                        </div>
+                        <a href="https://premium.ku.ac.th/360/premium"
+                            ><button class="panorama__button" role="button">
+                                เข้าสู่ 360 Tours
+                            </button></a
+                        >
                     </div>
-                    <img src="./static/ku_standard_logo.png" />
+                    <img id="panorama__logo" src="./static/ku_standard_logo.png" />
                 </div>
-                <a href="https://premium.ku.ac.th/360/premium"
-                    ><button class="panorama__button" role="button">เข้าสู่ 360 Tours</button></a
-                >
             </div>
         </section>
+
+        <section class="panorama" id="panorama2">
+            <div id="panorama__bg"></div>
+            <div class="panorama__content">
+                <div class="panorama__text panorama__reverse">
+                    <div class="panorama__title">
+                        <div>
+                            KU.CSC. INNOVATION <br />OUTLET 360 Tours<br />
+                            <span style="font-weight: 200">วิทยาเขต กำแพงแสน</span>
+                        </div>
+                        <a href="https://www.csc.ku.ac.th/outlet/"
+                            ><button class="panorama__button" role="button">
+                                เข้าสู่ 360 Tours
+                            </button></a
+                        >
+                    </div>
+                    <img id="panorama__logo" src="./static/shop-kps_logo.png" />
+                </div>
+            </div>
+        </section>
+
         <section class="ar" id="ar">
             <canvas class="ar__bg"></canvas>
             <div class="ar__content">
