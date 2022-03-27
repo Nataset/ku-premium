@@ -87,7 +87,7 @@ const render_height = camera_width >= 700 ? 500 : 800;
     pointLight.position.set(-1, 0, 1);
     scene.add(pointLight);
 
-    gltfLoader.load('./static/untitled.gltf', gltf => {
+    gltfLoader.load('./static/phone.gltf', gltf => {
         gltf.scene.name = scene.add(gltf.scene);
         window.phone = gltf.scene;
 

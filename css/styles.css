@@ -471,6 +471,7 @@ li a:hover {
 }
 
 .panorama {
+    position: relative;
     width: 100%;
     height: 500px;
     background-color: black;
@@ -616,9 +617,9 @@ li a:hover {
 }
 
 .shop__button-facebook {
-    height: 3em;
-    width: 3em;
-    margin-top: 2em;
+    height: 2.5rem;
+    width: 2.5rem;
+    margin-top: 2rem;
     background-image: url('../static/facebook.png');
     background-position: center;
     background-size: contain;
@@ -678,7 +679,6 @@ li a:hover {
     }
 
     .panorama__content {
-        margin: 0px 2rem;
         text-align: center;
         align-items: center;
     }
@@ -810,8 +810,17 @@ li a:hover {
         animation: moveDown 1s forwards;
     }
 
+    .shop {
+        height: 800px;
+    }
+
+    .shop__photo {
+        height: 50%;
+    }
+
     .shop__content {
         padding: 0px 1rem;
+        height: 50%;
     }
 
     .ar__title {
@@ -848,4 +857,16 @@ li a:hover {
         font-size: 1rem;
         font-weight: 200;
     }
+}
+
+#panorama__tmpBG {
+    position: absolute;
+    width: 100%;
+    height: 500px;
+    opacity: 0.6;
+    background-image: url(../static/csc_pic.jpg);
+    background-position: center;
+    background-repeat: repeat;
+    background-size: contain;
+    background-position: center;
 }
