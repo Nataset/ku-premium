@@ -1,7 +1,3 @@
-document.querySelectorAll('.shop-photo__text').forEach(el => {
-    el.addEventListener('mouseover', event => {});
-});
-
 document.querySelector('.shop__button').addEventListener('click', () => {
     let content = document.querySelector('.modal__contents');
     content.style.height = 'auto';
@@ -14,7 +10,7 @@ document.querySelector('.shop__button').addEventListener('click', () => {
     <br><br>
     อีกทั้งเป็นแหล่งการเรียนรู้ ให้นิสิตได้ฝึกฝนทักษะวิชาชีพนอกห้องเรียนจากการทำงานจริง ให้นิสิตปัจจุบันและนิสิตเก่าเข้ามามีส่วนร่วมในการสร้างสรรค์นวัตกรรมคุณภาพให้แก่ The Premium 
     <br><br>
-    Smart farmer  AgriPrenuer และ SME ยกระดับมาตรฐานสินค้าและบริการของ ประชาชนสู่ตลาดระดับชาติและนานาชาติ
+    Smart Farmer  AgriPrenuer และ SME ยกระดับมาตรฐานสินค้าและบริการของ ประชาชนสู่ตลาดระดับชาติและนานาชาติ
     <br><br>
     The Premium @ KU จะช่วยพัฒนาคน พัฒนานวัตกรรมสินค้าและบริการอย่างมีมาตรฐาน เป็นศูนย์กลางการเรียนรู้ BCG economy ของประเทศ ในระดับชาติและระดับโลก`;
 });
