@@ -491,6 +491,11 @@ li a:hover {
     z-index: 99;
 }
 
+.panorama__logo-wrapper {
+    height: 300px;
+    width: 300px;
+}
+
 #panorama__bg {
     position: absolute;
     width: 100%;
@@ -695,7 +700,7 @@ li a:hover {
         align-items: center;
     }
 
-    #panorama__logo {
+    .panorama__logo-wrapper {
         display: none;
     }
 
