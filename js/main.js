@@ -40,6 +40,42 @@ document.querySelector('.modal__close-bar').addEventListener('click', () => {
     document.querySelector('.modal').classList.toggle('modal--hidden');
 });
 
+document.querySelector('#bottomBar__photo').addEventListener('click', () => {
+    document.querySelector('.modal-photo').classList.toggle('modal--hidden');
+});
+
+document.querySelector('.modal-photo__close-bar').addEventListener('click', () => {
+    document.querySelector('.modal-photo').classList.toggle('modal--hidden');
+});
+
+let slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+    showSlides((slideIndex += n));
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+    showSlides((slideIndex = n));
+}
+
+function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName('mySlides');
+    if (n > slides.length) {
+        slideIndex = 1;
+    }
+    if (n < 1) {
+        slideIndex = slides.length;
+    }
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = 'none';
+    }
+    slides[slideIndex - 1].style.display = 'block';
+}
+
 pannellum.viewer('panorama__bg', {
     type: 'equirectangular',
     panorama: './static/360.jpg',
