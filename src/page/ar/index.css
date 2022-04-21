@@ -51,6 +51,28 @@ body::after {
     justify-items: center;
 }
 
+.into__ar-howto {
+    text-align: center;
+    font-size: 1em;
+}
+
+.into__img {
+    max-width: 500px;
+    
+}
+
+#qr-code {
+    width: 100%;
+    object-fit: cover;
+    margin: 2em 0px;
+}
+
+.into__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .into__button {
     display: flex;
     flex-direction: column;
@@ -109,6 +131,10 @@ body::after {
     .into__text {
         font-size: 2.3em;
         line-height: 2em;
+    }
+
+    .into__ar-howto{
+        font-size: 1.5em;
     }
 
     #button-2 {
@@ -205,6 +231,9 @@ body::after {
 }
 
 @media screen and (min-width: 1200px) {
+    .into__ar-howto{
+        font-size: 2em;
+    }
     .more-info__feature {
         display: grid;
         grid-template-columns: 1fr 2fr;
@@ -259,12 +288,12 @@ body::after {
 }
 
 .ar__button {
-    height: 50px;
-    width: 250px;
+    height: 75px;
+    width: 300px;
     grid-row: 3;
     color: white;
     font-family: 'Kanit', sans-serif;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 300;
     letter-spacing: 1px;
     padding: 13px 20px 13px;
@@ -302,3 +331,5 @@ body::after {
 .left > more-info__img {
     order: 1;
 }
+
+
