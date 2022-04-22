@@ -395,6 +395,90 @@ li a:hover {
     animation-timing-function: steps(2, end);
 }
 
+.foodTrace {
+    display: flex;
+    flex-direction: row;
+    height: 500px;
+    background-color: #5F5857;
+    color: white;
+}
+
+
+
+.foodTrace__img {
+    background-image: url('../../assets/foodTrace.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.foodTrace__img {
+    width: 50%;
+}
+
+.foodTrace__content{
+    padding: 0px 5rem;
+    text-align: left;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+}
+
+.foodTrace__title {
+    font-family: 'Kanit', sans-serif;
+    font-weight: 600;
+    font-size: 3rem;
+    line-height: 1.25;
+    z-index: 0;
+}
+
+.foodTrace__descrip {
+    margin-top: 20px;
+    text-align: left;
+    font-size: 1.5rem;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 300;
+}
+
+.foodTrace__button {
+    color: rgb(0, 0, 0);
+    margin-top: 20px;
+    width: 250px;
+    font-family: 'Kanit', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    padding: 13px 20px 13px;
+    outline: 0;
+    border: 1px solid rgb(255, 255, 255);
+    cursor: pointer;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    z-index: 1;
+}
+
+.foodTrace__button:after {
+    content: '';
+    background-color: #ffffff;
+    width: 100%;
+    z-index: -1;
+    position: absolute;
+    height: 100%;
+    top: 7px;
+    left: 7px;
+    transition: 0.2s;
+}
+
+.foodTrace__button:hover:after {
+    top: 0px;
+    left: 0px;
+}
+
+
 @keyframes glitch {
     0% {
         clip-path: var(--slice-1);
@@ -795,6 +879,10 @@ li a:hover {
     .shop__content {
         padding: 0px 2rem;
     }
+
+    .foodTrace__content {
+        padding: 0px 2rem;
+    }
 }
 
 @media screen and (max-width: 1200px) {
@@ -826,6 +914,11 @@ li a:hover {
     .shop__content {
         padding: 0px 0.5rem;
     }
+
+    .foodTrace__content {
+        padding: 0px 0.5rem;
+    }
+
 
     .header__logo {
         max-width: 150px;
@@ -895,6 +988,31 @@ li a:hover {
         font-size: 20px;
     }
 
+
+    .foodTrace {
+        flex-direction: column;
+        height: 1000px;
+    }
+
+    .foodTrace__img {
+        width: 100%;
+        height: 50%;
+    }
+
+    .foodTrace__content {
+        padding: 0px 2em;
+        width: 100%;
+        height: 50%;
+    }
+
+    .foodTrace__title {
+        font-size: 36px;
+    }
+
+    .foodTrace__descrip {
+        font-size: 20px;
+    }
+
     .panorama__title {
         font-size: 3rem;
     }
@@ -931,6 +1049,8 @@ li a:hover {
     .shop__descrip {
         font-size: 20px;
     }
+
+    
 
     .metaverse__title {
         font-size: 4rem;
@@ -1001,6 +1121,18 @@ li a:hover {
     }
 
     .ar__descrip {
+        font-size: 16px;
+    }
+
+    .foodTrace__content {
+        padding: 0px 1rem;
+    }
+
+    .foodTrace__title {
+        font-size: 32px;
+    }
+
+    .foodTrace__descrip {
         font-size: 16px;
     }
 

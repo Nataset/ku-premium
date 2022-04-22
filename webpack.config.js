@@ -7,6 +7,7 @@ module.exports = {
         home: path.resolve(__dirname, './src/page/home/index.js'),
         ar: path.resolve(__dirname, './src/page/ar/index.js'),
         credit: path.resolve(__dirname, './src/page/credit/index.js'),
+        foodTrace: path.resolve(__dirname, './src/page/foodTrace/index.js'),
     },
     output: {
         path: path.resolve(__dirname, './dist'),
@@ -114,6 +115,12 @@ module.exports = {
             template: path.resolve(__dirname, './src/page/credit/index.html'),
             chunks: ['credit'],
             filename: 'credit/index.html',
+        }),
+
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, './src/page/foodTrace/index.html'),
+            chunks: ['foodTrace'],
+            filename: 'foodTrace/index.html',
         }),
 
         new CopyPlugin({
