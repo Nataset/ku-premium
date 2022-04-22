@@ -1,8 +1,11 @@
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
+    mode: 'production',
     entry: {
         home: path.resolve(__dirname, './src/page/home/index.js'),
         ar: path.resolve(__dirname, './src/page/ar/index.js'),
@@ -11,17 +14,13 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, './dist'),
-        filename: 'js/[name].[chunkhash:8].js',
+        filename: 'assets/js/[name].[chunkhash:8].js',
         clean: true,
     },
     devServer: {
         static: path.resolve(__dirname, './dist'),
     },
-    optimization: {
-        splitChunks: {
-            chunks: 'all',
-        },
-    },
+
     module: {
         rules: [
             {
@@ -32,7 +31,7 @@ module.exports = {
             {
                 test: /\.(css)$/,
                 use: [
-                    'style-loader',
+                    MiniCssExtractPlugin.loader,
                     {
                         loader: 'css-loader',
                         options: {
@@ -44,19 +43,19 @@ module.exports = {
 
             {
                 test: /\.(png|jpg|jpeg|ico)$/,
+                // type: 'asset/resource',
                 use: [
                     {
                         loader: 'url-loader',
                         options: {
                             limit: 8192,
-                            outputPath: 'assets',
-                            useRelativePaths: true,
+                            outputPath: 'assets/images',
+                            // useRelativePaths: true,
                         },
                     },
                     {
                         loader: 'image-webpack-loader',
                         options: {
-                            bypassOnDebug: true,
                             mozjpeg: {
                                 progressive: true,
                             },
@@ -99,6 +98,12 @@ module.exports = {
         ],
     },
     plugins: [
+        new CleanWebpackPlugin(),
+
+        new MiniCssExtractPlugin({
+            filename: 'assets/css/[name].[chunkhash:8].css',
+        }),
+
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, './src/page/home/index.html'),
             chunks: ['home'],
