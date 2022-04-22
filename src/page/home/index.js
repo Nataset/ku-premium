@@ -24,10 +24,10 @@ import img4 from '../../assets/behideTheScene/img4.jpg';
 import img5 from '../../assets/behideTheScene/img5.jpg';
 import img6 from '../../assets/behideTheScene/img6.jpg';
 import img7 from '../../assets/behideTheScene/img7.jpg';
-import shop_img from '../../assets/shop-logo.jpg';
-import panorama_img from '../../assets/360.jpg';
-import stars_img from '../../assets/stars.jpg';
-import smoke_img from '../../assets/smoke.png';
+import shop_img from '../../assets/home/shop-logo.jpg';
+import panorama_img from '../../assets/home/360.jpg';
+import stars_img from '../../assets/home/stars.jpg';
+import smoke_img from '../../assets/home/smoke.png';
 import phone_model from '../../assets/model/phone.gltf';
 import icon_img from '../../assets/favicon.ico';
 

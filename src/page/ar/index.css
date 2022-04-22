@@ -21,7 +21,7 @@ body::after {
     right: 0px;
     bottom: 0px;
     left: 0px;
-    background-image: url('../../assets/phong-bg.png');
+    background-image: url('../../assets/home/phong-bg.png');
     background-repeat: repeat;
     background-size: contain;
     opacity: 0.125;

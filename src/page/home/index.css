@@ -138,7 +138,7 @@ li a:hover {
 
 .shop__photo {
     width: 50%;
-    background-image: url('../../assets/shop.png');
+    background-image: url('../../assets/home/shop.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -240,7 +240,7 @@ li a:hover {
     right: 0px;
     bottom: 0px;
     left: 0px;
-    background-image: url('../../assets/phong-bg.png');
+    background-image: url('../../assets/home/phong-bg.png');
     background-position: center;
     background-repeat: repeat;
     background-size: contain;
@@ -406,7 +406,7 @@ li a:hover {
 
 
 .foodTrace__img {
-    background-image: url('../../assets/foodTrace.jpg');
+    background-image: url('../../assets/home/foodTrace.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -666,7 +666,7 @@ li a:hover {
     width: 100%;
     height: 500px;
     opacity: 0.6;
-    background-image: url('../../assets/csc_pic.jpg');
+    background-image: url('../../assets/home/csc_pic.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -681,7 +681,7 @@ li a:hover {
     height: 400px;
     flex-direction: row;
     text-align: center;
-    background-image: url('../../assets/shop-premium.jpg');
+    background-image: url('../../assets/home/shop-premium.jpg');
     background-position: center;
     background-repeat: none;
     background-size: cover;
@@ -706,7 +706,7 @@ li a:hover {
     font-size: 4rem;
     z-index: 1;
     opacity: 0;
-    background-image: url('../../assets/image.png');
+    background-image: url('../../assets/home/image.png');
     background-position: center;
     background-repeat: repeat;
     background-size: contain;
@@ -737,7 +737,7 @@ li a:hover {
     height: 2.5rem;
     width: 2.5rem;
     margin-top: 2rem;
-    background-image: url('../../assets/facebook.png');
+    background-image: url('../../assets/home/facebook.png');
     background-position: center;
     background-size: contain;
 }
