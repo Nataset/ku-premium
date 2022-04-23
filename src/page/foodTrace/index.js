@@ -1,4 +1,7 @@
 import './index.css';
+import favicon_img from '../../assets/favicon.ico';
+import setFavicon from '../../utitly/setFavicon';
+import setMetaTags from '../../utitly/setMetaTags';
 const images = importAll(require.context('../../assets/foodTrace/', false, /\.(png|jpe?g)$/));
 
 function importAll(r) {
@@ -8,6 +11,9 @@ function importAll(r) {
     });
     return images;
 }
+
+setFavicon(favicon_img);
+setMetaTags();
 
 document.getElementById('step1_img').src = images['step1.png'];
 document.getElementById('step1-qr_img').src = images['step1-qr.png'];
@@ -21,3 +27,4 @@ document.getElementById('step5_img').src = images['step5.png'];
 document.getElementById('step5-qr_img').src = images['step5-qr.png'];
 document.getElementById('step6_img').src = images['step6.png'];
 document.getElementById('step6-qr_img').src = images['step6-qr.png'];
+document.getElementById('vr-icon').src = images['vr-icon.png'];

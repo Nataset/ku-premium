@@ -78,7 +78,7 @@ module.exports = {
         ],
     },
     plugins: [
-        new CleanWebpackPlugin(),
+        // new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, './src/page/home/index.html'),
             chunks: ['home'],

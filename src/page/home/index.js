@@ -31,6 +31,10 @@ import smoke_img from '../../assets/home/smoke.png';
 import phone_model from '../../assets/model/phone.gltf';
 import icon_img from '../../assets/favicon.ico';
 
+// import { Road } from './light/Road';
+import { CarLights } from './light/CarLights';
+// import distortion from './light/Distortion.default';
+
 function setImgSrc() {
     const image1 = document.getElementById('image1');
     const image2 = document.getElementById('image2');
@@ -69,7 +73,7 @@ function setModal() {
     The Premium @ KU จะช่วยพัฒนาคน พัฒนานวัตกรรมสินค้าและบริการอย่างมีมาตรฐาน เป็นศูนย์กลางการเรียนรู้ BCG economy ของประเทศ ในระดับชาติและระดับโลก`;
     });
 
-    document.querySelector('.metaverse__info').addEventListener('click', () => {
+    document.querySelector('.kuniverse__info').addEventListener('click', () => {
         let content = document.querySelector('.modal__contents');
         content.style.height = '90%';
         content.style.overflow = 'auto';
@@ -235,6 +239,63 @@ function setThreeJS() {
         }
     })();
 
+    (function infiniteLights() {
+        const options = {
+            length: 400,
+            width: 20,
+            roadWidth: 9,
+            islandWidth: 2,
+            nPairs: 50,
+            roadSections: 3,
+            // distortion: distortion,
+        };
+
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(60, camera_width / render_height, 0.1, 1000);
+        const clock = new THREE.Clock();
+
+        // scene.background = new THREE.Color(0x1f1f1f);
+
+        camera.position.z = -5;
+        camera.position.y = 3;
+        camera.position.x = 0;
+
+        const renderer = new THREE.WebGLRenderer({
+            canvas: document.querySelector('#metaverse-bg'),
+        });
+        renderer.setSize(camera_width, render_height);
+
+        window.camera_light = camera;
+        window.renderer_light = renderer;
+
+        // const road = new Road(scene, options, 0x101012);
+        const leftLights = new CarLights(scene, options, 0xff102a, 140);
+        const rightLights = new CarLights(scene, options, 0x1515bd, -140);
+
+        // road.init();
+        leftLights.init();
+        leftLights.mesh.position.setX(-options.roadWidth / 2 - options.islandWidth / 2);
+
+        rightLights.init();
+        rightLights.mesh.position.setX(options.roadWidth / 2 + options.islandWidth / 2);
+
+        clock.start();
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            clock.getDelta();
+            let time = clock.elapsedTime;
+            // road.update(time);
+            leftLights.update(time);
+            rightLights.update(time);
+
+            renderer.render(scene, camera);
+        }
+
+        animate();
+    })();
+
     (function metaverse() {
         let scene_meta,
             camera_meta,
@@ -291,7 +352,7 @@ function setThreeJS() {
             scene_meta.add(blueLight);
 
             const renderer_meta = new THREE.WebGLRenderer({
-                canvas: document.querySelector('.metaverse__bg'),
+                canvas: document.querySelector('#kuniverse-bg'),
             });
             window.renderer_meta = renderer_meta;
             renderer_meta.setSize(camera_width, render_height);
@@ -344,7 +405,7 @@ function setThreeJS() {
                 composer.addPass(new RenderPass(scene_meta, camera_meta));
                 composer.addPass(effectPass);
 
-                const meta_el = document.querySelector('.metaverse');
+                const meta_el = document.querySelector('.kuniverse');
                 const observer2 = new IntersectionObserver(
                     function (entries) {
                         if (entries[0].isIntersecting === true) {
@@ -365,10 +426,8 @@ function setThreeJS() {
             });
             composer.render(0.1);
             starArray.forEach(mesh => {
-                let axis = new THREE.Vector3(0, 1, 0);
                 mesh.velocity += mesh.acceleration;
                 mesh.translateY(-mesh.velocity);
-                // mesh.rotation.y += 0.1;
 
                 if (mesh.position.y < 0) {
                     mesh.position.y = 100;
@@ -388,10 +447,18 @@ function setThreeJS() {
             window.camera_meta.aspect = document.documentElement.clientWidth / 500;
             window.camera_meta.updateProjectionMatrix();
             window.renderer_meta.setSize(document.documentElement.clientWidth, 500);
+
+            window.camera_light.aspect = document.documentElement.clientWidth / 500;
+            window.camera_light.updateProjectionMatrix();
+            window.renderer_light.setSize(document.documentElement.clientWidth, 500);
         } else {
             window.camera_meta.aspect = document.documentElement.clientWidth / 800;
             window.camera_meta.updateProjectionMatrix();
             window.renderer_meta.setSize(document.documentElement.clientWidth, 800);
+
+            window.camera_light.aspect = document.documentElement.clientWidth / 800;
+            window.camera_light.updateProjectionMatrix();
+            window.renderer_light.setSize(document.documentElement.clientWidth, 800);
         }
 
         if (document.documentElement.clientWidth > 1200) {
