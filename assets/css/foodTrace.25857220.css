@@ -1,0 +1,184 @@
+@import url(https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;500;600&display=swap);
+* {
+    box-sizing: border-box;
+    font-family: 'Kanit', sans-serif;
+}
+html,
+body {
+    position: relative;
+    margin: 0px;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+body::after {
+    content: '';
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-image: url(../../assets/images/b1ec881cc017ad49d3b0affb50a8585b.png);
+    background-repeat: repeat;
+    background-size: contain;
+    opacity: 0.125;
+    z-index: -99;
+}
+.wapper {
+    margin: 5em 20em;
+}
+
+h1 {
+    font-size: 3em;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-top: 4em;
+}
+
+h3 {
+ font-size:1.25em;
+ margin-bottom: 2em;
+ font-weight: 300;
+}
+
+#vr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#vr-text{
+    margin: 0px;
+    padding: 20px;
+}
+
+.foodTrace-into {
+    text-align: center;
+}
+
+#vr-icon{
+    height: 100%;
+}
+
+.product-info {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+}
+
+/* .product-info__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+} */
+
+.product-info a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+}
+
+.product-info__content h2{
+    font-weight: 200;
+    color: green;
+}
+
+.product-info__img-wrapper {
+    width: 100%;
+    padding: 0em 20%
+}
+
+.product-info__content img {
+    width: 100%;
+    border-radius: 50%;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+
+
+
+
+.button {
+    height: 50px;
+    width: 300px;
+    grid-row: 3;
+    color: white;
+    font-family: 'Kanit', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    padding: 13px 20px 13px;
+    outline: 0;
+    border: 1px solid black;
+    cursor: pointer;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.button:after {
+    content: '';
+    background-color: #424242;
+    width: 100%;
+    z-index: -1;
+    position: absolute;
+    height: 100%;
+    top: 7px;
+    left: 7px;
+    transition: 0.2s;
+}
+
+.button:hover:after {
+    top: 0px;
+    left: 0px;
+}
+
+
+@media screen and (max-width: 1500px) {
+   .wapper {
+       margin:5em 10em 
+   } 
+}
+
+@media screen and (max-width: 1300px) {
+   .wapper {
+       margin:5em 2em 
+   } 
+}
+
+
+@media screen and (max-width: 1000px) {
+    h1{
+        font-size: 2.25em;
+    }
+    h2 {
+        margin-top: 2em;
+        font-size: 1.5em;
+    }
+    h3 {
+        font-size: 1.25em;
+    }
+    .wapper {
+        margin:2em 0.5em 
+    }  
+}
+
+@media screen and (max-width: 700px) {
+    .product-info a{
+        width: 100%;
+    }
+    
+}

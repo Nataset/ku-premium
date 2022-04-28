@@ -1,0 +1,144 @@
+@import url(https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;600&display=swap);
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    background-color: #060606;
+    color: #ffffff;
+    font-family: 'Kanit', sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    font-family: 'Kanit', sans-serif;
+    text-align: center;
+    font-weight: 400;
+    font-size: 6rem;
+}
+
+h1 span {
+    font-size: 6rem;
+    font-weight: 200;
+}
+
+h1 em {
+    font-size: 0.8em;
+}
+
+h2 {
+    text-align: center;
+    font-weight: 400;
+    font-size: 2.5rem;
+    margin-top: 5rem;
+    margin-bottom: 0.5rem;
+}
+
+h3 {
+    text-align: center;
+    font-weight: 400;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+h4 {
+    text-align: center;
+    font-weight: 400;
+    font-size: 1.8rem;
+}
+
+p {
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+.credits {
+    flex-basis: 100rem;
+    margin: 2rem 0;
+    font-size: 1.85rem;
+    line-height: 1.2;
+    padding: 1rem;
+}
+.credits__single {
+    display: grid;
+    grid-template-columns: 1;
+    gap: 0 1.5rem;
+    text-align: center;
+}
+.credits__single dt {
+    margin-top: 2.3rem;
+}
+.credits__single dd {
+    margin-top: 1.5rem;
+    font-size: 2.5rem;
+}
+.credits__double {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 2rem;
+}
+.credits__double dt {
+    text-align: right;
+    margin-top: 1.7rem;
+}
+.credits__double dd {
+    text-align: left;
+    grid-column: 2/3;
+    margin-top: 0.6rem;
+}
+.credits__double dt + dd {
+    margin-top: 1.7rem;
+}
+.credits__inline {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 1.7rem;
+}
+.credits__inline li {
+    padding: 0.3rem 0.8rem;
+}
+.credits__music {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 1.7rem;
+}
+.credits__music dl {
+    text-align: center;
+    padding: 0 2rem 2rem 2rem;
+    flex-basis: 30rem;
+}
+.credits__music dt {
+    font-style: italic;
+    margin-bottom: 0.5rem;
+}
+.credits__music dd {
+    font-size: 1.5rem;
+}
+
+footer {
+    margin: 3rem;
+}
+
+@media screen and (max-width: 500px) {
+    h1 {
+        font-size: 3.5rem;
+    }
+
+    h1 span {
+        font-size: 3rem;
+    }
+}
+
