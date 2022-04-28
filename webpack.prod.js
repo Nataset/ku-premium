@@ -105,7 +105,9 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(),
 
-        new MiniCssExtractPlugin(),
+        new MiniCssExtractPlugin({
+            filename: 'assets/css/[name].[chunkhash:8].css',
+        }),
 
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, './src/page/home/index.html'),
