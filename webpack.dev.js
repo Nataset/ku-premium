@@ -10,7 +10,12 @@ module.exports = {
         home: path.resolve(__dirname, './src/page/home/index.js'),
         ar: path.resolve(__dirname, './src/page/ar/index.js'),
         credit: path.resolve(__dirname, './src/page/credit/index.js'),
-        foodTrace: path.resolve(__dirname, './src/page/foodTrace/index.js'),
+        foodTrace: path.resolve(__dirname, './src/page/foodTrace/main/index.js'),
+        cornMilk: path.resolve(__dirname, './src/page/foodTrace/cornMilk/index.js'),
+        kuMilk: path.resolve(__dirname, './src/page/foodTrace/kuMilk/index.js'),
+        kuCannafe: path.resolve(__dirname, './src/page/foodTrace/kuCannafe/index.js'),
+        kuWagyu: path.resolve(__dirname, './src/page/foodTrace/kuWagyu/index.js'),
+        kapioku: path.resolve(__dirname, './src/page/foodTrace/kapioku/index.js'),
     },
     output: {
         path: path.resolve(__dirname, './dist'),
@@ -18,7 +23,6 @@ module.exports = {
         clean: true,
     },
     devServer: {
-        historyApiFallback: true,
         static: path.resolve(__dirname, './dist'),
         open: true,
         compress: true,
@@ -98,9 +102,39 @@ module.exports = {
         }),
 
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, './src/page/foodTrace/index.html'),
+            template: path.resolve(__dirname, './src/page/foodTrace/main/index.html'),
             chunks: ['foodTrace'],
             filename: 'foodTrace/index.html',
+        }),
+
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, './src/page/foodTrace/kuMilk/index.html'),
+            chunks: ['kuMilk'],
+            filename: 'foodTrace/kuMilk/index.html',
+        }),
+
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, './src/page/foodTrace/cornMilk/index.html'),
+            chunks: ['cornMilk'],
+            filename: 'foodTrace/cornMilk/index.html',
+        }),
+
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, './src/page/foodTrace/kuCannafe/index.html'),
+            chunks: ['kuCannafe'],
+            filename: 'foodTrace/kuCannafe/index.html',
+        }),
+
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, './src/page/foodTrace/kuWagyu/index.html'),
+            chunks: ['kuWagyu'],
+            filename: 'foodTrace/kuWagyu/index.html',
+        }),
+
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, './src/page/foodTrace/kapioku/index.html'),
+            chunks: ['kapioku'],
+            filename: 'foodTrace/kapioku/index.html',
         }),
 
         new CopyPlugin({
