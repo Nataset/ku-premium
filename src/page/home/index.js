@@ -35,6 +35,13 @@ import icon_img from '../../assets/favicon.ico';
 import { CarLights } from './light/CarLights';
 // import distortion from './light/Distortion.default';
 
+function closeAnnounce() {
+    document.querySelector('#top-announce__close')
+        .addEventListener('click', () => {
+            document.querySelector('#top-announce').style.display = 'none'
+        })
+}
+
 function setImgSrc() {
     const image1 = document.getElementById('image1');
     const image2 = document.getElementById('image2');
@@ -486,3 +493,4 @@ setModal();
 setPhotoSlides();
 setPannorama();
 setThreeJS();
+closeAnnounce();

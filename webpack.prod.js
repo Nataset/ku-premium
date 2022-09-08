@@ -16,6 +16,7 @@ module.exports = {
         kuCannafe: path.resolve(__dirname, './src/page/foodTrace/kuCannafe/index.js'),
         kuWagyu: path.resolve(__dirname, './src/page/foodTrace/kuWagyu/index.js'),
         kapioku: path.resolve(__dirname, './src/page/foodTrace/kapioku/index.js'),
+        activity: path.resolve(__dirname, './src/page/activity/index.js'),
     },
     output: {
         path: path.resolve(__dirname, './dist'),
@@ -161,6 +162,12 @@ module.exports = {
             template: path.resolve(__dirname, './src/page/foodTrace/kapioku/index.html'),
             chunks: ['kapioku'],
             filename: 'foodTrace/kapioku/index.html',
+        }),
+
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, './src/page/activity/index.html'),
+            chunks: ['activity'],
+            filename: 'activity/index.html',
         }),
 
         new CopyPlugin({
