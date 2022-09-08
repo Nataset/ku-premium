@@ -1,0 +1,232 @@
+@import url(https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;500;600&display=swap);
+* {
+    box-sizing: border-box;
+    font-family: 'Kanit', sans-serif;
+}
+html,
+body {
+    position: relative;
+    margin: 0px;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+}
+
+body::after {
+    content: '';
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-image: url(../../assets/images/750c9419abcd3c1a202052021f3f9658.png);
+    background-repeat: repeat;
+    background-size: contain;
+    opacity: 0.125;
+    z-index: -99;
+}
+.wapper {
+    margin: 5em 10em;
+}
+
+.acticity-into {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.acticity-into h1 {
+    font-size: 3.5em;
+}
+
+
+.acticity-into h3 {
+    font-size: 2rem;
+    font-weight:300;
+    margin-bottom: 2em;
+}
+
+.activity {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 5em;
+}
+
+.activity__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    background-color: #f5f2ee;
+    padding: 0px 3em;
+    
+}
+
+.activity__title {
+    font-size: 1.4em;
+}
+
+.activity__describe {
+    font-size: 1.3em;
+    font-weight: 300;
+}
+
+.activity__youtube {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 55%;
+}
+
+#youtube {
+    width: 100%;
+    min-height: 500px;
+}
+
+.right {
+    flex-direction: row-reverse;
+}
+
+
+.button {
+    height: 50px;
+    width: 300px;
+    grid-row: 3;
+    color: white;
+    font-family: 'Kanit', sans-serif;
+    font-size: 1.3em;
+    font-weight: 300;
+    letter-spacing: 1px;
+    padding: 13px 20px 13px;
+    outline: 0;
+    border: 1px solid black;
+    cursor: pointer;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    margin-bottom: 2em;
+}
+
+.button:after {
+    content: '';
+    background-color: #424242;
+    width: 100%;
+    z-index: -1;
+    position: absolute;
+    height: 100%;
+    top: 7px;
+    left: 7px;
+    transition: 0.2s;
+}
+
+.button:hover:after {
+    top: 0px;
+    left: 0px;
+}
+
+
+@media screen and (max-width: 1800px) {
+    .wapper {
+        margin:5em 0.5em 
+    } 
+
+    
+ }
+
+
+@media screen and (max-width: 1400px) {
+    .acticity-into h1 {
+        font-size: 3em;
+    }
+
+    .acticity-into h3 {
+        font-size: 2rem;
+    }
+
+    h1{
+        font-size: 1.5em;
+    }
+    p {
+        font-size: 0.9em;
+    }
+ }
+ 
+ 
+ @media screen and (max-width: 1000px) {
+    .wapper{
+        margin:5em 7em  
+    }
+
+    .activity {
+        flex-direction: column-reverse;
+        margin-bottom: 2em;
+    }
+
+    .right {
+        flex-direction: column-reverse;
+    }
+
+    .activity__content {
+        padding: 2em 3em;
+        width: 100%;
+    }
+
+    .activity__youtube {
+        width: 100%;
+        margin-bottom: 0.5em;
+    }
+
+    #youtube {
+        min-height: 300px;
+    }
+ }
+
+
+ @media screen and (max-width: 700px) {
+    .wapper{
+        margin: 2em 0.5em  
+    }
+
+    .acticity-into h1 {
+        font-size: 2em;
+    }
+
+    .acticity-into h3 {
+        font-size: 1.5rem;
+    }
+
+    .activity__content {
+        padding: 1em 1em;
+    }
+
+    .button {
+        font-size: 1rem;
+    }
+
+    h1{
+        font-size: 1em;
+    }
+    p {
+        font-size: 0.7em;
+    }
+
+    #youtube {
+        min-height: 300px;
+    }
+ }
+ 
