@@ -31,7 +31,7 @@ body::after {
     z-index: -99;
 }
 .wapper {
-    margin: 5em 10em;
+    margin: 5em 20em;
 }
 
 h1 {
@@ -145,6 +145,13 @@ h3 {
 .button:hover:after {
     top: 0px;
     left: 0px;
+}
+
+
+@media screen and (max-width: 1500px) {
+   .wapper {
+       margin:5em 10em 
+   } 
 }
 
 @media screen and (max-width: 1300px) {
